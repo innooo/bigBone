@@ -76,8 +76,8 @@
 //引入样式
 __webpack_require__(1);
 
-__webpack_require__(3);
-__webpack_require__(6);
+__webpack_require__(4);
+__webpack_require__(7);
 angular.module('starter', ['ionic', 'route', 'controllers'])
 
 .run(function($ionicPlatform) {
@@ -103,6 +103,7 @@ angular.module('starter', ['ionic', 'route', 'controllers'])
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
+__webpack_require__(3);
 
 /***/ }),
 /* 2 */
@@ -112,17 +113,23 @@ __webpack_require__(2);
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(4);
 __webpack_require__(5);
+__webpack_require__(6);
 
 
 
 angular.module('route', ['tabsRouter', 'firstRouter']);
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 angular.module('tabsRouter', [])
@@ -175,7 +182,7 @@ angular.module('tabsRouter', [])
     }])
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 angular.module('firstRouter', [])
@@ -193,11 +200,11 @@ angular.module('firstRouter', [])
     })
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var tabsControllers = __webpack_require__(7);
-var firstCtrl = __webpack_require__(8);
+var tabsControllers = __webpack_require__(8);
+var firstCtrl = __webpack_require__(9);
 
 
 angular.module('controllers', [])
@@ -209,7 +216,7 @@ angular.module('controllers', [])
     .controller('first', firstCtrl)
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var tabsControllers = {
@@ -219,8 +226,21 @@ var tabsControllers = {
     forum: function($scope) {
         $scope.str = 'forum';
     },
-    center: function($scope) {
+    center: function($scope, $ionicSlideBoxDelegate) {
+
+
         $scope.str = 'center';
+        $scope.tabNames = ['java', 'html5', 'android'];
+        $scope.slectIndex = 0;
+        $scope.activeSlide = function(index) { //点击时候触发
+            $scope.slectIndex = index;
+            $ionicSlideBoxDelegate.slide(index);
+        };
+        $scope.slideChanged = function(index) { //滑动时候触发
+            $scope.slectIndex = index;
+        };
+        $scope.pages = ["template/tab01.html", "template/tab02.html", "template/tab03.html"];
+
     },
     mall: function($scope) {
         $scope.str = 'mall';
@@ -232,7 +252,7 @@ var tabsControllers = {
 module.exports = tabsControllers;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // angular.module('aboutCtrl', [])

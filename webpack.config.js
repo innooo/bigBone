@@ -14,6 +14,14 @@ module.exports = {
         filename: 'js/bundle.app.js',
         path: process.cwd() + '/www'
     },
+    devServer: {
+        contentBase: ROOT_PATH,
+        historyApiFallback: true,
+        hot: true,
+        open: true,
+        inline: true,
+        port: 8888
+    },
     module: {
 
         rules: [

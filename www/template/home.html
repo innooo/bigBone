@@ -1,6 +1,9 @@
 <!-- view-title的值会被加载到导航的中间 这就是ion-vew的作用 -->
 <ion-view view-title='首页'>
-
+    <ion-nav-bar class='bar-royal'>
+        <!-- 返回按钮它监听的是上一个视图,其中的内容会被替换为当前视图ion-view的title属性值 -->
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
 
     <ion-content>
         <h1>{{str}}</h1>
