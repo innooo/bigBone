@@ -1,0 +1,1 @@
+require('./../firstPage/style/style.css');
